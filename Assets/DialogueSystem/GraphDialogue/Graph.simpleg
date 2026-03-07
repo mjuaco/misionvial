@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790b4d75d92f4b0984310a268dbd952f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.GraphToolkit.Editor::Unity.GraphToolkit.Editor.Implementation.GraphObjectImp
+  m_GraphModel:
+    rid: 2913839009125367932
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 2913839009125367932
+      type: {class: GraphModelImp, ns: Unity.GraphToolkit.Editor.Implementation, asm: Unity.GraphToolkit.Editor}
+      data:
+        m_Guid:
+          m_Value0: 3480864979472113147
+          m_Value1: 2181179210668831104
+        m_HashGuid:
+          serializedVersion: 2
+          Hash: fb5d88a441844e3080f1618bef1a451e
+        m_Name: 
+        m_GraphNodeModels: []
+        m_GraphWireModels: []
+        m_GraphStickyNoteModels: []
+        m_GraphPlacematModels: []
+        m_GraphVariableModels: []
+        m_GraphPortalModels: []
+        m_SectionModels:
+        - rid: 2913839009125367933
+        m_LocalSubgraphs: []
+        m_LastKnownBounds:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        m_GraphElementMetaData: []
+        m_EntryPoint:
+          rid: -2
+        m_Graph:
+          rid: 2913839009125367934
+    - rid: 2913839009125367933
+      type: {class: SectionModel, ns: Unity.GraphToolkit.Editor, asm: Unity.GraphToolkit.Internal.Editor}
+      data:
+        m_Guid:
+          m_Value0: 12228427904556353466
+          m_Value1: 5735984507540240008
+        m_HashGuid:
+          serializedVersion: 2
+          Hash: ba478ee4631ab4a9887614e1844f9a4f
+        m_Version: 2
+        m_Items: []
+        m_Title: 
+    - rid: 2913839009125367934
+      type: {class: DSGraph, ns: , asm: Assembly-CSharp-Editor}
+      data: 
