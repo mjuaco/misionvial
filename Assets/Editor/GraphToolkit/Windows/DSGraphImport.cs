@@ -5,15 +5,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-[ScriptedImporter(1, DSGraph.AssetExtensions)]
+[ScriptedImporter(1, DSGraph.AssetExtension)]
 public class DSGraphImport : ScriptedImporter
 {
     public override void OnImportAsset(AssetImportContext ctx)
     {
         DSGraph editorGraph = GraphDatabase.LoadGraphForImporter<DSGraph>(ctx.assetPath);
         runtimeDialogueGraph runtimeGraph = ScriptableObject.CreateInstance<runtimeDialogueGraph>();
-
         var nodeIDMap = new Dictionary<INode, string>();
+
         foreach (var node in editorGraph.GetNodes())
         {
             nodeIDMap[node] = Guid.NewGuid().ToString();
@@ -35,25 +35,59 @@ public class DSGraphImport : ScriptedImporter
             var runtimeNode = new runtimeDialogueNode { NodeID = nodeIDMap[iNode] };
             if (iNode is DialogueNode dialogueNode)
             {
-                progressDialogueNode(dialogueNode, runtimeNode, nodeIDMap);
+                ProgressDialogueNode(dialogueNode, runtimeNode, nodeIDMap);
+            }else if (iNode is ChoiceNode choiceNode)
+            {
+                ProgressChoiceNode(choiceNode, runtimeNode, nodeIDMap);
             }
+                runtimeGraph.allNodes.Add(runtimeNode);
         }
+
         ctx.AddObjectToAsset("RuntimeData", runtimeGraph);
         ctx.SetMainObject(runtimeGraph);
 
     }
 
-    private void progressDialogueNode(DialogueNode node, runtimeDialogueNode runtimeNode, Dictionary<INode, string> nodeIDMap)
+    private void ProgressDialogueNode(DialogueNode node, runtimeDialogueNode runtimeNode, Dictionary<INode, string> nodeIDMap)
     {
-        runtimeNode.SpeakerName = GetPortVaule<string>(node.GetOutputPortByName("Speaker"));
-        runtimeNode.SpeakerName = GetPortVaule<string>(node.GetOutputPortByName("Dialogue"));
+        runtimeNode.SpeakerName = GetPortValue<string>(node.GetInputPortByName("Speaker"));
+        runtimeNode.DialogueText = GetPortValue<string>(node.GetInputPortByName("Dialogue"));
 
         var nextNodePort = node.GetOutputPortByName("Output")?.firstConnectedPort;
-        if (nextNodePort != null) 
-            runtimeNode.NextNodeID = nodeIDMap[nextNodePort.GetNode()];
+
+        if (nextNodePort != null)
+        {
+            var nextNode = nextNodePort.GetNode();
+
+            if (nodeIDMap.TryGetValue(nextNode, out var nextID))
+            {
+                runtimeNode.NextNodeID = nextID;
+            }
+        }
     }
 
-    private T GetPortVaule<T>(IPort port)
+    private void ProgressChoiceNode(ChoiceNode node, runtimeDialogueNode runtimeNode, Dictionary<INode, string> nodeIDMap)
+    {
+        runtimeNode.SpeakerName = GetPortValue<string>(node.GetInputPortByName("Speaker"));
+        runtimeNode.DialogueText = GetPortValue<string>(node.GetInputPortByName("Dialogue"));
+
+        var choiceOutputPorts = node.GetOutputPorts().Where(p => p.name.StartsWith("Choice_"));
+
+        foreach (var outputPort in choiceOutputPorts)
+        {
+            var index = outputPort.name.Substring("Choice_".Length);
+            var textPort = node.GetInputPortByName($"ChoiceText_{index}");
+
+            var choiceData = new ChoiceData()
+            {
+                choiceText = GetPortValue<string>(textPort),
+                desinationNodeID = outputPort.firstConnectedPort != null ? nodeIDMap[outputPort.firstConnectedPort.GetNode()] : null
+            };
+            runtimeNode.Choices.Add(choiceData);
+        }
+    }
+
+    private T GetPortValue<T>(IPort port)
     {
         if (port == null) return default;
         if (port.isConnected)
@@ -64,7 +98,7 @@ public class DSGraphImport : ScriptedImporter
                 return value;
             }
         }
-        port.TryGetValue(out T fallbackVaule);
-        return fallbackVaule;
+        port.TryGetValue(out T fallbackValue);
+        return fallbackValue;
     }
 }

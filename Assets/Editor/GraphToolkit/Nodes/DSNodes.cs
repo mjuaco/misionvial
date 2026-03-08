@@ -1,4 +1,3 @@
-using UnityEngine;
 using Unity.GraphToolkit.Editor;
 using System;
 
@@ -27,10 +26,34 @@ public class DialogueNode : Node
     {
         context.AddInputPort("Input").Build();
         context.AddOutputPort("Output").Build();
-        
-        context.AddInputPort<Sprite>("Image").Build();
 
         context.AddInputPort<string>("Speaker").Build();
         context.AddInputPort<string>("Dialogue").Build();
     }
+}
+
+[Serializable]
+public class ChoiceNode : Node
+{
+    const string optionID = "portCount";
+    protected override void OnDefinePorts(IPortDefinitionContext context)
+    {
+        context.AddInputPort("Input").Build();
+
+        context.AddInputPort<string>("Speaker").Build();
+        context.AddInputPort<string>("Dialogue").Build();
+
+        var option = GetNodeOptionByName(optionID);
+        option.TryGetValue(out int portCount);
+        for (int i = 0; i < portCount; i++)
+        {
+            context.AddInputPort<string>($"ChoiceText_{i}").Build();
+            context.AddOutputPort($"Choice_{i}").Build();
+        }
+    }
+
+    protected override void OnDefineOptions(IOptionDefinitionContext context)
+     {
+         context.AddOption<int>(optionID).WithDefaultValue(2).Delayed();
+     }
 }

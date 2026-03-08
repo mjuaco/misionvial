@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 61
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790b4d75d92f4b0984310a268dbd952f, type: 3}
+  m_Name: New Graph
+  m_EditorClassIdentifier: Unity.GraphToolkit.Editor::Unity.GraphToolkit.Editor.Implementation.GraphObjectImp
+  m_GraphModel:
+    rid: 2913839052629999678
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 2913839052629999678
+      type: {class: GraphModelImp, ns: Unity.GraphToolkit.Editor.Implementation, asm: Unity.GraphToolkit.Editor}
+      data:
+        m_Guid:
+          m_Value0: 15217608730420350636
+          m_Value1: 7284094284459807067
+        m_HashGuid:
+          serializedVersion: 2
+          Hash: ac8e969383ce2fd35b11aeaf284d1665
+        m_Name: 
+        m_GraphNodeModels: []
+        m_GraphWireModels: []
+        m_GraphStickyNoteModels: []
+        m_GraphPlacematModels: []
+        m_GraphVariableModels: []
+        m_GraphPortalModels: []
+        m_SectionModels:
+        - rid: 2913839052629999679
+        m_LocalSubgraphs: []
+        m_LastKnownBounds:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        m_GraphElementMetaData: []
+        m_EntryPoint:
+          rid: -2
+        m_Graph:
+          rid: 2913839052629999680
+    - rid: 2913839052629999679
+      type: {class: SectionModel, ns: Unity.GraphToolkit.Editor, asm: Unity.GraphToolkit.Internal.Editor}
+      data:
+        m_Guid:
+          m_Value0: 15988962048257087885
+          m_Value1: 16125902496388730244
+        m_HashGuid:
+          serializedVersion: 2
+          Hash: 8dd9900d4534e4dd84cdd5bbe1b6cadf
+        m_Version: 2
+        m_Items: []
+        m_Title: 
+    - rid: 2913839052629999680
+      type: {class: DSGraph, ns: , asm: Assembly-CSharp-Editor}
+      data: 
