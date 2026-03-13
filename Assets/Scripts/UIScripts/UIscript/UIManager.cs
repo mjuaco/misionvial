@@ -2,7 +2,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour
 {
-
     public  void StartGamePlay()
     {
         SceneManager.LoadScene("GamePlay");
@@ -15,7 +14,6 @@ public class UIManager : MonoBehaviour
     {
         Panel.SetActive(false);
     }
-
     public void CloseGame()
     {
         Application.Quit();
