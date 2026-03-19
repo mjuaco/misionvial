@@ -5,9 +5,15 @@ public class UserProfiel : MonoBehaviour
     public TMP_InputField nameField;
     public TextMeshProUGUI nameText;
 
+    public GameObject userName;
     public void Update()
     {
         nameText.text = Profiel.username;
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            SaveName();
+            userName.SetActive(false);
+        }
     }
     public void SaveName()
     {
