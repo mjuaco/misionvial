@@ -4,8 +4,11 @@ public class UIManager : MonoBehaviour
 {
     public  void StartGamePlay()
     {
-        SceneManager.LoadScene("GamePlay");
+        //ceneManager.LoadScene("GamePlay");
+        Debug.Log("Ya estas jugando mio");
+
     }
+
     public void Show(GameObject Panel)
     {
         Panel.SetActive(true);
