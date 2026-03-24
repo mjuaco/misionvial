@@ -2,15 +2,10 @@ using UnityEngine;
 
 public class CámaraSeguimiento : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public Transform Carro;
 
-    // Update is called once per frame
     void Update()
     {
-        
+        Camera.main.transform.position = new Vector3(Carro.position.x + 15, Carro.position.y + 22.5f, Camera.main.transform.position.z);
     }
 }
