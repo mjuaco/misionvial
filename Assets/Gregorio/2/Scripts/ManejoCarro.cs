@@ -86,9 +86,6 @@ public class ManejoCarro : MonoBehaviour
             Ruedas[i].GetWorldPose(out Vector3 pos, out Quaternion quat);
             RuedasIlustración[i].transform.position = new Vector3(pos.x, pos.y, -1.780008f);
             RuedasIlustración[i].transform.rotation = Quaternion.Euler(quat.eulerAngles.z, 0, -quat.eulerAngles.x);
-            //Debug.Log(quat.eulerAngles);
-            //Debug.Log(quat.y);
-            //Debug.Log(quat.z);
         }
         Carroza.transform.position = new Vector3(Rigidbody.transform.position.x,
                                                  Rigidbody.transform.position.y,
