@@ -23,7 +23,6 @@ public class GeneradorNiveles : MonoBehaviour
             {
                 Vector3 posicion = Orden[i - 1].transform.Find("Final").position;
                 instancia = Instantiate(Orden[i], posicion, Quaternion.identity);
-                Debug.Log(instancia.transform.Find("Final").position);
             }
 
             instancia.SetActive(false);
