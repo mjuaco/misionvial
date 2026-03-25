@@ -4,7 +4,7 @@ public class UIManager : MonoBehaviour
 {
     public  void StartGamePlay()
     {
-        //ceneManager.LoadScene("GamePlay");
+        SceneManager.LoadScene("carretera");
         Debug.Log("Ya estas jugando mio");
 
     }

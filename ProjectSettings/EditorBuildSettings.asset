@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 5ee026622226ae64784e3f9c6c60d9c6
+  - enabled: 1
+    path: Assets/Gregorio/2/carretera.unity
+    guid: de5391078d6b3224aaa0c350e20d08b5
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

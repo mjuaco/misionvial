@@ -51,8 +51,7 @@ MonoBehaviour:
         - rid: 2913839052629999788
         m_GraphStickyNoteModels: []
         m_GraphPlacematModels: []
-        m_GraphVariableModels:
-        - rid: 2913839052629999746
+        m_GraphVariableModels: []
         m_GraphPortalModels: []
         m_SectionModels:
         - rid: 2913839009125367933
@@ -145,14 +144,6 @@ MonoBehaviour:
           m_Category: 2
           m_Index: 3
         - m_Guid:
-            m_Value0: 16563700882113891777
-            m_Value1: 17749743090233815177
-          m_HashGuid:
-            serializedVersion: 2
-            Hash: c10d39ac3116dee589b0d4634cc153f6
-          m_Category: 1
-          m_Index: 0
-        - m_Guid:
             m_Value0: 15705839181281661538
             m_Value1: 12159366367687912567
           m_HashGuid:
@@ -230,8 +221,7 @@ MonoBehaviour:
           serializedVersion: 2
           Hash: ba478ee4631ab4a9887614e1844f9a4f
         m_Version: 2
-        m_Items:
-        - rid: 2913839052629999746
+        m_Items: []
         m_Title: 
     - rid: 2913839009125367934
       type: {class: DSGraph, ns: , asm: Assembly-CSharp-Editor}
@@ -644,33 +634,6 @@ MonoBehaviour:
     - rid: 2913839052629999745
       type: {class: ChoiceNode, ns: , asm: Assembly-CSharp-Editor}
       data: 
-    - rid: 2913839052629999746
-      type: {class: VariableDeclarationModel, ns: Unity.GraphToolkit.Editor, asm: Unity.GraphToolkit.Internal.Editor}
-      data:
-        m_Guid:
-          m_Value0: 16563700882113891777
-          m_Value1: 17749743090233815177
-        m_HashGuid:
-          serializedVersion: 2
-          Hash: c10d39ac3116dee589b0d4634cc153f6
-        m_Version: 2
-        m_Name: Juaco
-        m_UniqueId: 
-        m_DataType:
-          m_Identification: System.String, System.Private.CoreLib, Version=4.0.0.0,
-            Culture=neutral, PublicKeyToken=b77a5c561934e089
-        m_IsExposed: 0
-        m_Scope: 0
-        m_ShowOnInspectorOnly: 0
-        m_Tooltip: 
-        m_InitializationValue:
-          rid: 2913839052629999748
-        m_Modifiers: 0
-        m_VariableFlags: 0
-    - rid: 2913839052629999748
-      type: {class: 'Constant`1[[System.String, mscorlib]]', ns: Unity.GraphToolkit.Editor, asm: Unity.GraphToolkit.Internal.Editor}
-      data:
-        m_Value: 
     - rid: 2913839052629999754
       type: {class: UserNodeModelImp, ns: Unity.GraphToolkit.Editor.Implementation, asm: Unity.GraphToolkit.Editor}
       data:

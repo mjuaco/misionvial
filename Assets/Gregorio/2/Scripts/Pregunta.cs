@@ -13,7 +13,7 @@ public class Pregunta : MonoBehaviour
     public float Velocidad;
     public float Tiempo;
     public float Temporizador;
-
+    public GameObject dialogueManager;
     private void Start()
     {
         InterfazJugable = GameObject.Find("Canvas").GetComponent<InterfazJugable>();
@@ -30,6 +30,7 @@ public class Pregunta : MonoBehaviour
             Tiempo = Posición / Velocidad;
             InterfazJugable.Desactivar();
             StartCoroutine(EntrarPregunta());
+           
         }
     }
 
@@ -43,7 +44,7 @@ public class Pregunta : MonoBehaviour
             yield return null;
         }
         Carro.Presionado = 2;
-        StartCoroutine(DurantePregunta());
+       dialogueManager.GetComponent<DialogueManager>().enabled = true;
     }
 
     public IEnumerator DurantePregunta()
@@ -72,6 +73,7 @@ public class Pregunta : MonoBehaviour
 
     public IEnumerator SalirPregunta()
     {
+        dialogueManager.GetComponent<DialogueManager>().enabled = false;
         Carro.Cambio = false;
         Carro.Presionado = 0;
         Temporizador = 0.0f;

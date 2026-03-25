@@ -1,7 +1,9 @@
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEditor.MemoryProfiler;
+using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.ProBuilder.Shapes;
 using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
@@ -20,16 +22,20 @@ public class DialogueManager : MonoBehaviour
     private Dictionary<string, runtimeDialogueNode> _nodeLookup = new Dictionary<string, runtimeDialogueNode>();
     private runtimeDialogueNode _currentNode;
 
-    private void Start()
+    public Pregunta pregunta;
+    
+
+    public void Start()
     {
-     foreach (var node in runtimeGraph.allNodes)
+        foreach (var node in runtimeGraph.allNodes)
         {
             _nodeLookup[node.NodeID] = node;
         }
         if (!string.IsNullOrEmpty(runtimeGraph.entryNodeID))
         {
             showDialogue(runtimeGraph.entryNodeID);
-        }else
+        }
+        else
         {
             endDialogue();
         }
@@ -106,5 +112,6 @@ public class DialogueManager : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
+        StartCoroutine(pregunta.SalirPregunta());
     }
 }
