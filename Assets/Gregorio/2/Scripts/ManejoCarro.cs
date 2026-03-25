@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using NUnit.Framework;
 using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ManejoCarro : MonoBehaviour
@@ -24,19 +25,26 @@ public class ManejoCarro : MonoBehaviour
 
     private void Update()
     {
-        //Debug.Log(Ruedas[0].rpm);
+        //Debug.Log(Rigidbody.linearVelocity.x);
         Posiciones();
     }
 
     void FixedUpdate()
     {
-        if (Cambio)
+        if (Presionado == 2)
         {
-            Acelerar();
+            FrenadoBrusco();
         }
         else
         {
-            Frenar();
+            if (Cambio)
+            {
+                Acelerar();
+            }
+            else
+            {
+                Frenar();
+            }
         }
     }
 
@@ -45,6 +53,7 @@ public class ManejoCarro : MonoBehaviour
         foreach (var wheel in Ruedas)
         {
             wheel.motorTorque = Presionado * 600 * Aceleración * Time.deltaTime;
+            Debug.Log(wheel.brakeTorque);
         }
     }
 
@@ -54,6 +63,15 @@ public class ManejoCarro : MonoBehaviour
         {
             wheel.brakeTorque = Presionado * 600 * Freno * Time.deltaTime;
         }
+    }
+
+    public void FrenadoBrusco()
+    {
+        foreach (var wheel in Ruedas)
+        {
+            wheel.brakeTorque = 1000 * Freno;
+        }
+        Rigidbody.linearVelocity = Vector3.zero;
     }
 
     public void PresionarAcelerar()
