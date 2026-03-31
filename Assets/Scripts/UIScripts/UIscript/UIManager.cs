@@ -4,9 +4,7 @@ public class UIManager : MonoBehaviour
 {
     public  void StartGamePlay()
     {
-        SceneManager.LoadScene("carretera");
-        Debug.Log("Ya estas jugando mio");
-
+        SceneManager.LoadScene("GamePlay");
     }
 
     public void Show(GameObject Panel)
@@ -17,6 +15,7 @@ public class UIManager : MonoBehaviour
     {
         Panel.SetActive(false);
     }
+    
     public void CloseGame()
     {
         Application.Quit();
