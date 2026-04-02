@@ -4,15 +4,14 @@ public class UserProfiel : MonoBehaviour
 {
     public TMP_InputField nameField;
     public TextMeshProUGUI nameText;
-
-    public GameObject userName;
+    public GameObject panelUserName;
     public void Update()
     {
         nameText.text = Profiel.username;
-        if (Input.GetKeyDown(KeyCode.V))
+        if (Input.GetKeyDown(KeyCode.Return))
         {
             SaveName();
-            userName.SetActive(false);
+            panelUserName.SetActive(false);
         }
     }
     public void SaveName()
@@ -21,7 +20,7 @@ public class UserProfiel : MonoBehaviour
 
         if (!string.IsNullOrEmpty(userName))
         {
-            PlayerPrefs.SetString("USERNAME", userName);
+            PlayerPrefs.SetString("Username", userName);
             PlayerPrefs.Save();
         }
         nameField.text = " ";
@@ -30,5 +29,6 @@ public class UserProfiel : MonoBehaviour
 
 public static class Profiel
 {
-    public static string username => PlayerPrefs.GetString("USERNAME", "Player");
+    public static string username => PlayerPrefs.GetString("Username", "Player");
+    
 }
