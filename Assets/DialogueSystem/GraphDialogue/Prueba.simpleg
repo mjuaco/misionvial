@@ -44,27 +44,18 @@ MonoBehaviour:
         - rid: 3101455657990357215
         m_GraphStickyNoteModels: []
         m_GraphPlacematModels: []
-        m_GraphVariableModels:
-        - rid: 3101455657990357188
+        m_GraphVariableModels: []
         m_GraphPortalModels: []
         m_SectionModels:
         - rid: 3101455657990357186
         m_LocalSubgraphs: []
         m_LastKnownBounds:
           serializedVersion: 2
-          x: 582.4
-          y: 122.4
-          width: 986.4
-          height: 288.8
+          x: 583
+          y: 123
+          width: 984
+          height: 409
         m_GraphElementMetaData:
-        - m_Guid:
-            m_Value0: 604177222164514173
-            m_Value1: 11200110944745745442
-          m_HashGuid:
-            serializedVersion: 2
-            Hash: 7d857f84fb77620822ec884290c96e9b
-          m_Category: 1
-          m_Index: 0
         - m_Guid:
             m_Value0: 18092804135630415850
             m_Value1: 6398313150350366147
@@ -167,39 +158,11 @@ MonoBehaviour:
           serializedVersion: 2
           Hash: 9027c4cd3cda9d5fb15a77016fff182c
         m_Version: 2
-        m_Items:
-        - rid: 3101455657990357188
+        m_Items: []
         m_Title: 
     - rid: 3101455657990357187
       type: {class: DSGraph, ns: , asm: Assembly-CSharp-Editor}
       data: 
-    - rid: 3101455657990357188
-      type: {class: VariableDeclarationModel, ns: Unity.GraphToolkit.Editor, asm: Unity.GraphToolkit.Internal.Editor}
-      data:
-        m_Guid:
-          m_Value0: 604177222164514173
-          m_Value1: 11200110944745745442
-        m_HashGuid:
-          serializedVersion: 2
-          Hash: 7d857f84fb77620822ec884290c96e9b
-        m_Version: 2
-        m_Name: New Variable
-        m_UniqueId: 
-        m_DataType:
-          m_Identification: System.String, System.Private.CoreLib, Version=4.0.0.0,
-            Culture=neutral, PublicKeyToken=b77a5c561934e089
-        m_IsExposed: 0
-        m_Scope: 0
-        m_ShowOnInspectorOnly: 0
-        m_Tooltip: 
-        m_InitializationValue:
-          rid: 3101455657990357189
-        m_Modifiers: 0
-        m_VariableFlags: 0
-    - rid: 3101455657990357189
-      type: {class: 'Constant`1[[System.String, mscorlib]]', ns: Unity.GraphToolkit.Editor, asm: Unity.GraphToolkit.Internal.Editor}
-      data:
-        m_Value: 
     - rid: 3101455657990357190
       type: {class: UserNodeModelImp, ns: Unity.GraphToolkit.Editor.Implementation, asm: Unity.GraphToolkit.Editor}
       data:
@@ -381,6 +344,11 @@ MonoBehaviour:
           - ChoiceText_2
           - ChoiceText_3
           - ChoiceText_4
+          - EventID_0
+          - EventID_1
+          - EventID_2
+          - EventID_3
+          - EventID_4
           m_ValueList:
           - rid: 3101455657990357201
           - rid: 3101455657990357202
@@ -390,6 +358,11 @@ MonoBehaviour:
           - rid: 3101455657990357210
           - rid: 3101455657990357211
           - rid: 3101455657990357212
+          - rid: 8685803272538947842
+          - rid: 8685803272538947843
+          - rid: 8685803272538947844
+          - rid: 8685803272538947845
+          - rid: 8685803272538947846
         m_InputPortInfos:
           expandedPortsById:
             m_KeyList: []
@@ -424,7 +397,7 @@ MonoBehaviour:
     - rid: 3101455657990357205
       type: {class: 'Constant`1[[System.String, mscorlib]]', ns: Unity.GraphToolkit.Editor, asm: Unity.GraphToolkit.Internal.Editor}
       data:
-        m_Value: No me toques
+        m_Value: 'Nose '
     - rid: 3101455657990357206
       type: {class: ChoiceNode, ns: , asm: Assembly-CSharp-Editor}
       data: 
@@ -632,3 +605,23 @@ MonoBehaviour:
           m_PortDirection: 1
           m_PortOrientation: 0
           m_Title: Input
+    - rid: 8685803272538947842
+      type: {class: 'Constant`1[[System.String, mscorlib]]', ns: Unity.GraphToolkit.Editor, asm: Unity.GraphToolkit.Internal.Editor}
+      data:
+        m_Value: ActivarPanelEspecial
+    - rid: 8685803272538947843
+      type: {class: 'Constant`1[[System.String, mscorlib]]', ns: Unity.GraphToolkit.Editor, asm: Unity.GraphToolkit.Internal.Editor}
+      data:
+        m_Value: 
+    - rid: 8685803272538947844
+      type: {class: 'Constant`1[[System.String, mscorlib]]', ns: Unity.GraphToolkit.Editor, asm: Unity.GraphToolkit.Internal.Editor}
+      data:
+        m_Value: 
+    - rid: 8685803272538947845
+      type: {class: 'Constant`1[[System.String, mscorlib]]', ns: Unity.GraphToolkit.Editor, asm: Unity.GraphToolkit.Internal.Editor}
+      data:
+        m_Value: 
+    - rid: 8685803272538947846
+      type: {class: 'Constant`1[[System.String, mscorlib]]', ns: Unity.GraphToolkit.Editor, asm: Unity.GraphToolkit.Internal.Editor}
+      data:
+        m_Value: 

@@ -48,6 +48,7 @@ public class ChoiceNode : Node
         for (int i = 0; i < portCount; i++)
         {
             context.AddInputPort<string>($"ChoiceText_{i}").Build();
+            context.AddInputPort<string>($"EventID_{i}").Build();
             context.AddOutputPort($"Choice_{i}").Build();
         }
     }

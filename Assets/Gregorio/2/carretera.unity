@@ -2393,12 +2393,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1782505470}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 41b607bcfa77b4549ae2efd34fe7195f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueManager
-  runtimeGraph: {fileID: 3965311268370046156, guid: f40d55bef2aa70543ae9a31b637e2cbd, type: 3}
+  runtimeGraph: {fileID: 3965311268370046156, guid: 3e27373088d506042875efbb8d857534, type: 3}
   Dialoguepanel: {fileID: 224303094}
   SpeakerNameText: {fileID: 1897504189}
   DialogueText: {fileID: 436201251}

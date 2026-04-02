@@ -77,10 +77,13 @@ public class DSGraphImport : ScriptedImporter
         {
             var index = outputPort.name.Substring("Choice_".Length);
             var textPort = node.GetInputPortByName($"ChoiceText_{index}");
+            var eventPort = node.GetInputPortByName($"EventID_{index}");
+           
 
             var choiceData = new ChoiceData()
             {
                 choiceText = GetPortValue<string>(textPort),
+                eventID = GetPortValue<string>(eventPort),
                 desinationNodeID = outputPort.firstConnectedPort != null ? nodeIDMap[outputPort.firstConnectedPort.GetNode()] : null
             };
             runtimeNode.Choices.Add(choiceData);

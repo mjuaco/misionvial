@@ -1,9 +1,7 @@
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor.MemoryProfiler;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.ProBuilder.Shapes;
 using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
@@ -88,6 +86,8 @@ public class DialogueManager : MonoBehaviour
                 {
                     button.onClick.AddListener(() =>
                     {
+                        ExecuteEvent(choice.eventID);
+
                         if (!string.IsNullOrEmpty(choice.desinationNodeID))
                         {
                             showDialogue(choice.desinationNodeID);
@@ -100,6 +100,21 @@ public class DialogueManager : MonoBehaviour
 
                 }
             }
+        }
+    }
+    private void ExecuteEvent(string eventID)
+    {
+        if (string.IsNullOrEmpty(eventID)) return;
+
+        switch (eventID)
+        {
+            case "ActivarPanelEspecial":
+                Debug.Log("Activando panel especial...");
+                break;
+
+            case "DarPuntos":
+                Debug.Log("Dando puntos al jugador...");
+                break;
         }
     }
 

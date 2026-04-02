@@ -23,4 +23,6 @@ public class ChoiceData
 {
     public string choiceText;
     public string desinationNodeID;
+    public string eventID;
+
 }
