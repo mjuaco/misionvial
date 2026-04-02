@@ -13,5 +13,4 @@ public class MusicManager : MonoBehaviour
         audioSource.volume = slider.value;
         audioSource1.volume = slider1.value;
     }
-
 }
