@@ -2,9 +2,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour
 {
-    public  void StartGamePlay()
+    public  void StartGamePlay(string scene)
     {
-        SceneManager.LoadScene("GamePlay");
+        SceneManager.LoadScene(scene);
     }
 
     public void Show(GameObject Panel)
