@@ -9,6 +9,9 @@ public class ManejoCarro : MonoBehaviour
     public int Aceleración;
     public int Freno;
 
+    public bool EnEncuesta = false;
+    public float Velocidad;
+
     public int Presionado;
     public bool Cambio;
 
@@ -25,12 +28,25 @@ public class ManejoCarro : MonoBehaviour
 
     private void Update()
     {
-        //Debug.Log(Rigidbody.linearVelocity.x);
+        if (Velocidad < Rigidbody.linearVelocity.x && Cambio)
+        {
+            Velocidad = Rigidbody.linearVelocity.x;
+        }
+        else if (!Cambio && Presionado == 1)
+        {
+            Velocidad = Rigidbody.linearVelocity.x;
+        }
         Posiciones();
     }
 
     void FixedUpdate()
     {
+        Rigidbody.maxLinearVelocity = 60;
+        if (!EnEncuesta)
+        {
+            Rigidbody.linearVelocity = new Vector3(Velocidad, Rigidbody.linearVelocity.y);
+        }
+
         if (Presionado == 2)
         {
             FrenadoBrusco();
@@ -103,7 +119,8 @@ public class ManejoCarro : MonoBehaviour
         {
             Ruedas[i].GetWorldPose(out Vector3 pos, out Quaternion quat);
             RuedasIlustración[i].transform.position = new Vector3(pos.x, pos.y, -1.780008f);
-            RuedasIlustración[i].transform.rotation = Quaternion.Euler(quat.eulerAngles.z, 0, -quat.eulerAngles.x);
+            RuedasIlustración[i].transform.rotation = Quaternion.Euler(0, 0, -quat.eulerAngles.x);
+            //Debug.Log(quat.eulerAngles);
         }
         Carroza.transform.position = new Vector3(Rigidbody.transform.position.x,
                                                  Rigidbody.transform.position.y,

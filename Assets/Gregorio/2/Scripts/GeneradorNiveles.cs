@@ -10,6 +10,11 @@ public class GeneradorNiveles : MonoBehaviour
 
     void Start()
     {
+        Nuevo();
+    }
+
+    public void Antiguo()
+    {
         for (int i = 0; i < Orden.Count; i++)
         {
             GameObject instancia;
@@ -32,6 +37,25 @@ public class GeneradorNiveles : MonoBehaviour
         }
 
         Carretera[Contador].gameObject.SetActive(true); Carretera[Contador + 1].gameObject.SetActive(true);
+    }
+
+    public void Nuevo()
+    {
+        for (int i = 0; i < Orden.Count; i++)
+        {
+            GameObject instancia;
+
+            if (i == 0)
+            {
+                instancia = Instantiate(Orden[i], Vector3.zero, Quaternion.identity);
+                Carretera.Add(instancia);
+            }
+            else
+            {
+                instancia = Instantiate(Orden[i], Carretera[i - 1].transform.Find("Final").position, Quaternion.identity);
+                Carretera.Add(instancia);
+            }
+        }
     }
 
     public void Actualización()
