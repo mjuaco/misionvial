@@ -69,7 +69,6 @@ public class ManejoCarro : MonoBehaviour
         foreach (var wheel in Ruedas)
         {
             wheel.motorTorque = Presionado * 600 * Aceleración * Time.deltaTime;
-            Debug.Log(wheel.brakeTorque);
         }
     }
 

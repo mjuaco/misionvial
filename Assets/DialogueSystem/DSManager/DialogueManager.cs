@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -7,15 +8,18 @@ using UnityEngine.UI;
 public class DialogueManager : MonoBehaviour
 {
     public runtimeDialogueGraph runtimeGraph;
+    public float Timer;
 
     [Header("UI Components")]
     public GameObject Dialoguepanel;
     public TextMeshProUGUI SpeakerNameText;
     public TextMeshProUGUI DialogueText;
+    public Image Meter;
 
     [Header("UI Buttons Components")]
     public Button choiceButtonPrefab;
     public Transform choiceButtonConteiner;
+    public Animator PopUpAnimation;
 
     private Dictionary<string, runtimeDialogueNode> _nodeLookup = new Dictionary<string, runtimeDialogueNode>();
     private runtimeDialogueNode _currentNode;
@@ -74,6 +78,8 @@ public class DialogueManager : MonoBehaviour
 
         if (_currentNode.Choices.Count > 0)
         {
+            StartCoroutine(DurantePregunta());
+            PopUpAnimation.enabled = true;
             foreach (var choice in _currentNode.Choices)
             {
                 Button button = Instantiate(choiceButtonPrefab, choiceButtonConteiner);
@@ -115,6 +121,10 @@ public class DialogueManager : MonoBehaviour
             case "DarPuntos":
                 Debug.Log("Dando puntos al jugador...");
                 break;
+
+            default:
+                Debug.Log("No seleccionaste, pérdida de puntos");
+                break;
         }
     }
 
@@ -128,5 +138,21 @@ public class DialogueManager : MonoBehaviour
             Destroy(child.gameObject);
         }
         StartCoroutine(pregunta.SalirPregunta());
+    }
+
+    private IEnumerator DurantePregunta()
+    {
+        yield return new WaitForSeconds(1);
+        Meter.gameObject.SetActive(true);
+        float convertion = 1520 / Timer;
+        while (Timer > 0.05f)
+        {
+            Meter.rectTransform.sizeDelta = new Vector2(convertion * Timer, 50);
+            Timer -= Time.deltaTime;
+            yield return null;
+        }
+        Meter.gameObject.SetActive(false);
+        ExecuteEvent("Nada");
+        endDialogue();
     }
 }

@@ -1,8 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
-using NUnit.Framework;
+using UnityEngine.UI;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class Pregunta : MonoBehaviour
 {
@@ -11,8 +9,8 @@ public class Pregunta : MonoBehaviour
     public Rigidbody CarroFísicas;
     public float Posición;
     public float Velocidad;
-    public float Tiempo;
-    public float Temporizador;
+    private float Tiempo;
+    private float Temporizador;
     public GameObject dialogueManager;
     private void Start()
     {
@@ -46,30 +44,6 @@ public class Pregunta : MonoBehaviour
         }
         Carro.Presionado = 2;
        dialogueManager.GetComponent<DialogueManager>().enabled = true;
-    }
-
-    public IEnumerator DurantePregunta()
-    {
-        Temporizador = 0.0f;
-        InterfazJugable.FundidoNegro.gameObject.SetActive(true);
-        while (Temporizador < 0.5f)
-        {
-            InterfazJugable.FundidoNegro.color = Color.Lerp(new Color(0f, 0f, 0f, 0f), new Color(0f, 0f, 0f, 0.65f), Temporizador / 0.5f);
-            Temporizador += Time.deltaTime;
-            yield return null;
-        }
-        InterfazJugable.RandomBullshit.gameObject.SetActive(true);
-        yield return new WaitForSeconds(6);
-        InterfazJugable.RandomBullshit.gameObject.SetActive(false);
-        Temporizador = 0.0f;
-        while (Temporizador < 0.5f)
-        {
-            InterfazJugable.FundidoNegro.color = Color.Lerp(new Color(0f, 0f, 0f, 0.65f), new Color(0f, 0f, 0f, 0f), Temporizador / 0.5f);
-            Temporizador += Time.deltaTime;
-            yield return null;
-        }
-        InterfazJugable.FundidoNegro.gameObject.SetActive(false);
-        StartCoroutine(SalirPregunta());
     }
 
     public IEnumerator SalirPregunta()
