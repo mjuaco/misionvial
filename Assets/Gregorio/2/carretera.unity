@@ -1818,10 +1818,7 @@ MonoBehaviour:
   Orden:
   - {fileID: 6987594621788986330, guid: 9d6bb704eab038244a0b956cb05ece9f, type: 3}
   - {fileID: 4787641787984477427, guid: 3e98f01d48a1f3444935224936f2fb1c, type: 3}
-  - {fileID: 8176132297277568855, guid: 733dba4aed751d44c889a77e72b0bebc, type: 3}
   - {fileID: 189029747848542992, guid: d0ec4c485f591f04d984e1f816da6280, type: 3}
-  - {fileID: 189029747848542992, guid: d0ec4c485f591f04d984e1f816da6280, type: 3}
-  - {fileID: 5987896123740296454, guid: 6da506aa7c5f3764ea36be3eaed5864f, type: 3}
   Carretera: []
   Carro: {fileID: 1796624728}
   Contador: 0
@@ -2046,6 +2043,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2948026029649072783, guid: 9e6f8dc9708ca074fb2601568d5a5d87, type: 3}
+      propertyPath: Freno
+      value: 130
+      objectReference: {fileID: 0}
+    - target: {fileID: 2948026029649072783, guid: 9e6f8dc9708ca074fb2601568d5a5d87, type: 3}
       propertyPath: Carroza
       value: 
       objectReference: {fileID: 1936848193}
@@ -2057,6 +2058,26 @@ PrefabInstance:
       propertyPath: "RuedasIlustraci\xF3n.Array.data[1]"
       value: 
       objectReference: {fileID: 544482664}
+    - target: {fileID: 5055215573917290750, guid: 9e6f8dc9708ca074fb2601568d5a5d87, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5055215573917290750, guid: 9e6f8dc9708ca074fb2601568d5a5d87, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5055215573917290750, guid: 9e6f8dc9708ca074fb2601568d5a5d87, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5055215573917290750, guid: 9e6f8dc9708ca074fb2601568d5a5d87, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5055215573917290750, guid: 9e6f8dc9708ca074fb2601568d5a5d87, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5117017677435285724, guid: 9e6f8dc9708ca074fb2601568d5a5d87, type: 3}
       propertyPath: m_Center.z
       value: -0.2

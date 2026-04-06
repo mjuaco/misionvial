@@ -35,6 +35,7 @@ public class Pregunta : MonoBehaviour
 
     public IEnumerator EntrarPregunta()
     {
+        Carro.EnEncuesta = true;
         Temporizador = 0.0f;
         while (Temporizador < Tiempo)
         {
@@ -82,6 +83,7 @@ public class Pregunta : MonoBehaviour
             yield return null;
         }
         InterfazJugable.Activar();
+        Carro.EnEncuesta = false;
         this.gameObject.SetActive(false);
     }
 }
