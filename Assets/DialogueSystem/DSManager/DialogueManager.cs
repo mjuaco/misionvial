@@ -7,7 +7,10 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
-    public runtimeDialogueGraph runtimeGraph;
+    public List<runtimeDialogueGraph> runtimeGraph = new List<runtimeDialogueGraph>();
+    private Coroutine Coroutine;
+    public int Index;
+    public int Timer_Time;
     public float Timer;
 
     [Header("UI Components")]
@@ -27,15 +30,15 @@ public class DialogueManager : MonoBehaviour
     public Pregunta pregunta;
     
 
-    public void Start()
+    public void prueba()
     {
-        foreach (var node in runtimeGraph.allNodes)
+        foreach (var node in runtimeGraph[Index].allNodes)
         {
             _nodeLookup[node.NodeID] = node;
         }
-        if (!string.IsNullOrEmpty(runtimeGraph.entryNodeID))
+        if (!string.IsNullOrEmpty(runtimeGraph[Index].entryNodeID))
         {
-            showDialogue(runtimeGraph.entryNodeID);
+            showDialogue(runtimeGraph[Index].entryNodeID);
         }
         else
         {
@@ -78,7 +81,7 @@ public class DialogueManager : MonoBehaviour
 
         if (_currentNode.Choices.Count > 0)
         {
-            StartCoroutine(DurantePregunta());
+            Coroutine = StartCoroutine(DurantePregunta());
             PopUpAnimation.enabled = true;
             foreach (var choice in _currentNode.Choices)
             {
@@ -130,8 +133,11 @@ public class DialogueManager : MonoBehaviour
 
     private void endDialogue()
     {
+        StopCoroutine(Coroutine);
+        Meter.gameObject.SetActive(false);
         _currentNode = null;
         Dialoguepanel.SetActive(false);
+        Index++;
 
         foreach (Transform child in choiceButtonConteiner)
         {
@@ -142,16 +148,30 @@ public class DialogueManager : MonoBehaviour
 
     private IEnumerator DurantePregunta()
     {
+        float convertion = 1520 / Timer_Time;
+        Timer = Timer_Time;
+        Meter.rectTransform.sizeDelta = new Vector2(convertion * Timer_Time, 50);
         yield return new WaitForSeconds(1);
         Meter.gameObject.SetActive(true);
-        float convertion = 1520 / Timer;
         while (Timer > 0.05f)
         {
             Meter.rectTransform.sizeDelta = new Vector2(convertion * Timer, 50);
             Timer -= Time.deltaTime;
             yield return null;
+
+            if (Timer < Timer_Time * 0.2f)
+            {
+                Meter.color = Color.red;
+            }
+            else if (Timer < Timer_Time * 0.6f)
+            {
+                Meter.color = Color.yellow;
+            }
+            else
+            {
+                Meter.color = Color.green;
+            }
         }
-        Meter.gameObject.SetActive(false);
         ExecuteEvent("Nada");
         endDialogue();
     }

@@ -43,12 +43,11 @@ public class Pregunta : MonoBehaviour
             yield return null;
         }
         Carro.Presionado = 2;
-       dialogueManager.GetComponent<DialogueManager>().enabled = true;
+        dialogueManager.GetComponent<DialogueManager>().prueba();
     }
 
     public IEnumerator SalirPregunta()
     {
-        dialogueManager.GetComponent<DialogueManager>().enabled = false;
         Carro.Cambio = false;
         Carro.Presionado = 0;
         Temporizador = 0.0f;
