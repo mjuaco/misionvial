@@ -1010,6 +1010,7 @@ MonoBehaviour:
   Dialoguepanel: {fileID: 1320680836}
   SpeakerNameText: {fileID: 1978559166}
   DialogueText: {fileID: 1447122085}
+  PanelNoticia: {fileID: 0}
   Meter: {fileID: 959139199}
   choiceButtonPrefab: {fileID: 1248897751409649125, guid: d062792d29027e746b8f4f5e8b16b4d3, type: 3}
   choiceButtonConteiner: {fileID: 1208679821}

@@ -17,6 +17,7 @@ public class DialogueManager : MonoBehaviour
     public GameObject Dialoguepanel;
     public TextMeshProUGUI SpeakerNameText;
     public TextMeshProUGUI DialogueText;
+    public GameObject PanelNoticia;
     public Image Meter;
 
     [Header("UI Buttons Components")]
@@ -118,7 +119,7 @@ public class DialogueManager : MonoBehaviour
         switch (eventID)
         {
             case "ActivarPanelEspecial":
-                Debug.Log("Activando panel especial...");
+                PanelNoticia.SetActive(true);
                 break;
 
             case "DarPuntos":
