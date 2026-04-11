@@ -118,12 +118,12 @@ public class DialogueManager : MonoBehaviour
 
         switch (eventID)
         {
-            case "ActivarPanelEspecial":
+            case "Incorrecta":
                 PanelNoticia.SetActive(true);
                 break;
 
-            case "DarPuntos":
-                Debug.Log("Dando puntos al jugador...");
+            case "Correcta":
+                Debug.Log("Se suma un punto");
                 break;
 
             default:
