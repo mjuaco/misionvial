@@ -15,6 +15,7 @@ public class DialogueManager : MonoBehaviour
 
     [Header("UI Components")]
     public GameObject Dialoguepanel;
+    public SemaforoVida semaforo;
     public TextMeshProUGUI SpeakerNameText;
     public TextMeshProUGUI DialogueText;
     public GameObject PanelNoticia;
@@ -29,14 +30,26 @@ public class DialogueManager : MonoBehaviour
     private runtimeDialogueNode _currentNode;
 
     public Pregunta pregunta;
-    
 
+    private void Start()
+    {
+        semaforo = GetComponent<SemaforoVida>();
+    }
     public void prueba()
     {
+        if (runtimeGraph == null || runtimeGraph.Count <= Index)
+        {
+            Debug.LogError($"Error: No hay un grafo asignado en el índice {Index} de la lista.");
+            return;
+        }
+
+        _nodeLookup.Clear();
+
         foreach (var node in runtimeGraph[Index].allNodes)
         {
             _nodeLookup[node.NodeID] = node;
         }
+
         if (!string.IsNullOrEmpty(runtimeGraph[Index].entryNodeID))
         {
             showDialogue(runtimeGraph[Index].entryNodeID);
@@ -119,11 +132,11 @@ public class DialogueManager : MonoBehaviour
         switch (eventID)
         {
             case "Incorrecta":
-                PanelNoticia.SetActive(true);
+                semaforo.RegistrarFallo();
                 break;
 
             case "Correcta":
-                Debug.Log("Se suma un punto");
+                Debug.Log("Tedi los puntos");
                 break;
 
             default:
@@ -134,17 +147,29 @@ public class DialogueManager : MonoBehaviour
 
     private void endDialogue()
     {
-        StopCoroutine(Coroutine);
-        Meter.gameObject.SetActive(false);
+        if (Coroutine != null)
+        {
+            StopCoroutine(Coroutine);
+            Coroutine = null; 
+        }
+
+        if (Meter != null) Meter.gameObject.SetActive(false);
+
         _currentNode = null;
         Dialoguepanel.SetActive(false);
-        Index++;
+
+        if (Index < runtimeGraph.Count - 1)
+        {
+         Index++;
+            
+        }
 
         foreach (Transform child in choiceButtonConteiner)
         {
             Destroy(child.gameObject);
         }
-        StartCoroutine(pregunta.SalirPregunta());
+
+        if (pregunta != null) StartCoroutine(pregunta.SalirPregunta());
     }
 
     private IEnumerator DurantePregunta()
