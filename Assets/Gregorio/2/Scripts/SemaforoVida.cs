@@ -10,7 +10,7 @@ public class SemaforoVida : MonoBehaviour
     public GameObject panelOptions;
 
     [Header("Lógica")]
-    private int fallos = 0;
+    public int fallos = 0;
 
     public void RegistrarFallo()
     {

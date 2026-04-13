@@ -3,23 +3,26 @@ using UnityEngine;
 public class AnimacionPorProximidad : MonoBehaviour
 {
     public Animator _animator;
-    [SerializeField] private string nombreTrigger = "tren";
-    [SerializeField] private string tagObjetivo = "Carro";
-
+    public GameObject tren;
     void Start()
     {
-        _animator = GetComponent<Animator>();
+        _animator = FindAnyObjectByType<Animator>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag(tagObjetivo))
+        if (other.gameObject.CompareTag("Carro"))
         {
-            if (_animator != null)
-            {
-                _animator.SetTrigger(nombreTrigger);
-                Debug.Log("Jugador cerca: Activando animación.");
-            }
+        _animator.SetTrigger("Tren");
+            
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Carro"))
+        {
+            Destroy(tren);
         }
     }
 

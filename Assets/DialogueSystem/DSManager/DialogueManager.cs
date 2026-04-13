@@ -12,7 +12,6 @@ public class DialogueManager : MonoBehaviour
     public int Index;
     public int Timer_Time;
     public float Timer;
-
     [Header("UI Components")]
     public GameObject Dialoguepanel;
     public SemaforoVida semaforo;
