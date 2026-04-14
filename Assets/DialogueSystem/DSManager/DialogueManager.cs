@@ -17,7 +17,6 @@ public class DialogueManager : MonoBehaviour
     public GameObject Dialoguepanel;
     public TextMeshProUGUI SpeakerNameText;
     public TextMeshProUGUI DialogueText;
-    public GameObject PanelNoticia;
     public Image Meter;
 
     [Header("UI Buttons Components")]
@@ -29,7 +28,6 @@ public class DialogueManager : MonoBehaviour
     private runtimeDialogueNode _currentNode;
 
     public Pregunta pregunta;
-    public GameObject EndLevel;
     
 
     public void prueba()
@@ -119,18 +117,15 @@ public class DialogueManager : MonoBehaviour
 
         switch (eventID)
         {
-            case "Incorrecta":
-                StopCoroutine(Coroutine);
-                PanelNoticia.SetActive(true);
+            case "ActivarPanelEspecial":
+                Debug.Log("Activando panel especial...");
                 break;
 
-            case "Correcta":
-                StopCoroutine(Coroutine);
-                Debug.Log("Se suma un punto");
+            case "DarPuntos":
+                Debug.Log("Dando puntos al jugador...");
                 break;
 
             default:
-                StopCoroutine(Coroutine);
                 Debug.Log("No seleccionaste, pérdida de puntos");
                 break;
         }
@@ -138,6 +133,7 @@ public class DialogueManager : MonoBehaviour
 
     private void endDialogue()
     {
+        StopCoroutine(Coroutine);
         Meter.gameObject.SetActive(false);
         _currentNode = null;
         Dialoguepanel.SetActive(false);
@@ -148,10 +144,6 @@ public class DialogueManager : MonoBehaviour
             Destroy(child.gameObject);
         }
         StartCoroutine(pregunta.SalirPregunta());
-        if (Index == runtimeGraph.Count)
-        {
-            EndLevel.SetActive(true);
-        }
     }
 
     private IEnumerator DurantePregunta()

@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -108,139 +108,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: Grama de alante_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 75
-        width: 168
-        height: 58
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1f29a9278fbab2d40b9f89cd7bebffbf
-      internalID: -1926566198
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Grama de alante_4
-      rect:
-        serializedVersion: 2
-        x: 177
-        y: 28
-        width: 374
-        height: 102
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: caed5778781430e47ac3ddc19a0c88ab
-      internalID: 3195473
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Grama de alante_5
-      rect:
-        serializedVersion: 2
-        x: 934
-        y: 43
-        width: 271
-        height: 71
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 69e5737296fc4024a87d441aef10e2af
-      internalID: 553273075
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Grama de alante_7
-      rect:
-        serializedVersion: 2
-        x: 1628
-        y: 25
-        width: 236
-        height: 70
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 15f4723993cdc4d4b926c69bb7f3f755
-      internalID: 1908135544
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Grama de alante_11
-      rect:
-        serializedVersion: 2
-        x: 669
-        y: 4
-        width: 176
-        height: 55
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2ed931f074ab83f41912460bf42a25de
-      internalID: 754071591
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Grama de alante_14
-      rect:
-        serializedVersion: 2
-        x: 1329
-        y: 0
-        width: 140
-        height: 58
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9732e3a60775e50419b538169191677c
-      internalID: 850489561
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     customData: 
     physicsShape: []
@@ -253,28 +121,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":1,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
-    nameFileIdTable:
-      Grama de alante_0: -692850574
-      Grama de alante_1: -75903041
-      Grama de alante_10: -1137517331
-      Grama de alante_11: 754071591
-      Grama de alante_12: -341842333
-      Grama de alante_13: 929298758
-      Grama de alante_14: 850489561
-      Grama de alante_15: -1620894000
-      Grama de alante_16: -1148715033
-      Grama de alante_17: -486363734
-      Grama de alante_2: -1926566198
-      Grama de alante_3: -451903828
-      Grama de alante_4: 3195473
-      Grama de alante_5: 553273075
-      Grama de alante_6: -231504056
-      Grama de alante_7: 1908135544
-      Grama de alante_8: 375620837
-      Grama de alante_9: 1421476553
+      entries: []
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
