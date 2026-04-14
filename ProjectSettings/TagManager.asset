@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - Carro
+  - tren
   layers:
   - Default
   - TransparentFX
