@@ -20,4 +20,13 @@ public class UIManager : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void pause()
+    {
+        Time.timeScale = 0;
+    }
+    public void resume()
+    {
+        Time.timeScale = 1;
+    }
 }
