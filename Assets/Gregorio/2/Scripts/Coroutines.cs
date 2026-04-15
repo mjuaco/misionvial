@@ -6,13 +6,17 @@ public class Coroutines : MonoBehaviour
     public Pregunta Pregunta;
     public ManejoCarro ManejoCarro;
     public InterfazJugable InterfazJugable;
-    public DialogueManager DialogueManager;
+    public DialogueManager dialogueManager;
     public GameObject Carruaje;
     public GameObject[] Noticias;
     public GameObject Carro;
     public SpriteRenderer Vaca;
     public CámaraSeguimiento CámaraSeguimiento;
 
+    private void Start()
+    {
+        dialogueManager = FindAnyObjectByType<DialogueManager>();
+    }
     //Pregunta 1
     public IEnumerator CorrectaPendiente()
     {
@@ -226,7 +230,7 @@ public class Coroutines : MonoBehaviour
             yield return null;
         }
         Vaca.gameObject.SetActive(false);
-        DialogueManager.Finish();
+        dialogueManager.Finish();
         Tiempo = 0;
         while (Tiempo < 2f)
         {
@@ -237,10 +241,84 @@ public class Coroutines : MonoBehaviour
     }
     public IEnumerator IncorrectaAnimales1()
     {
-        yield return null;
+        Pregunta.Velocidad = 30; 
+        ManejoCarro.Velocidad = 30;
+        float tiempo = 0;
+
+        Vaca.gameObject.SetActive(true);
+        Vaca.color = new Color(1, 1, 1, 0);
+
+        while (tiempo < 1.5f)
+        {
+            Vaca.color = Color.Lerp(new Color(1, 1, 1, 0), new Color(1, 1, 1, 1), tiempo / 1.5f);
+
+            Vaca.transform.position = new Vector3(916.18f, Mathf.Lerp(5.2f, 1.5f, tiempo / 1.5f), 0f);
+
+            tiempo += Time.deltaTime;
+            yield return null;
+        }
+
+        tiempo = 0;
+        float duracionSusto = 0.8f;
+        while (tiempo < duracionSusto)
+        {
+            ManejoCarro.Velocidad = Mathf.Lerp(30, 0, tiempo / duracionSusto);
+
+            float temblor = Mathf.Sin(Time.time * 50) * 0.1f;
+            Carro.transform.position += new Vector3(0, 0, temblor);
+
+            tiempo += Time.deltaTime;
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(0.5f);
+
+        if (Noticias.Length > 4)
+        {
+            Noticias[4].SetActive(true);
+        }
+
+        ManejoCarro.Velocidad = 0;
+        Vaca.gameObject.SetActive(false); 
     }
     public IEnumerator IncorrectaAnimales2()
     {
-        yield return null;
+        Pregunta.Velocidad = 25;
+        ManejoCarro.Velocidad = 25;
+        float tiempo = 0;
+
+        Vaca.gameObject.SetActive(true);
+        Vaca.transform.position = new Vector3(916.18f, 10f, 0f);
+        Vaca.color = new Color(1, 1, 1, 1);
+
+        yield return new WaitForSeconds(0.5f); 
+
+        while (tiempo < 1.2f)
+        {
+            Vaca.transform.position = new Vector3(916.18f, Mathf.Lerp(10f, -10f, tiempo / 1.2f), 0f);
+
+            if (tiempo > 0.4f)
+            {
+                ManejoCarro.Velocidad = Mathf.Lerp(25, 0, (tiempo - 0.4f) / 0.4f);
+
+                float rotacionZ = Mathf.Sin(tiempo * 40) * 5f;
+                Carro.transform.rotation = Quaternion.Euler(0, 180, rotacionZ);
+            }
+
+            tiempo += Time.deltaTime;
+            yield return null;
+        }
+
+        Carro.transform.rotation = Quaternion.Euler(0, 180, 0);
+        ManejoCarro.Velocidad = 0;
+
+        yield return new WaitForSeconds(2.0f);
+
+        if (Noticias.Length > 5)
+        {
+            Noticias[5].SetActive(true);
+        }
+
+        Vaca.gameObject.SetActive(false);
     }
 }

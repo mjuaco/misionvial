@@ -427,7 +427,7 @@ MonoBehaviour:
     - rid: 3649207936445317266
       type: {class: 'Constant`1[[System.String, mscorlib]]', ns: Unity.GraphToolkit.Editor, asm: Unity.GraphToolkit.Internal.Editor}
       data:
-        m_Value: Incorrecta
+        m_Value: IncorrectaAnimales1
     - rid: 3649207936445317267
       type: {class: 'Constant`1[[System.String, mscorlib]]', ns: Unity.GraphToolkit.Editor, asm: Unity.GraphToolkit.Internal.Editor}
       data:
@@ -578,7 +578,7 @@ MonoBehaviour:
     - rid: 3649207936445317276
       type: {class: 'Constant`1[[System.String, mscorlib]]', ns: Unity.GraphToolkit.Editor, asm: Unity.GraphToolkit.Internal.Editor}
       data:
-        m_Value: Incorrecta
+        m_Value: IncorrectaAnimales2
     - rid: 3649207936445317286
       type: {class: WireModel, ns: Unity.GraphToolkit.Editor, asm: Unity.GraphToolkit.Internal.Editor}
       data:

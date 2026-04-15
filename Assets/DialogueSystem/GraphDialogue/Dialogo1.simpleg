@@ -51,10 +51,10 @@ MonoBehaviour:
         m_LocalSubgraphs: []
         m_LastKnownBounds:
           serializedVersion: 2
-          x: 145.6
-          y: 260
-          width: 1172
-          height: 316
+          x: 146
+          y: 183
+          width: 1170
+          height: 390
         m_GraphElementMetaData:
         - m_Guid:
             m_Value0: 3134473442850353649
@@ -370,7 +370,7 @@ MonoBehaviour:
           serializedVersion: 2
           Hash: 324e3c514891d30b805ee3c82c6fad29
         m_Version: 2
-        m_Position: {x: 783.1383, y: 263.28793}
+        m_Position: {x: 774.1383, y: 183.28793}
         m_Title: 
         m_Tooltip: 
         m_NodePreviewModel:
@@ -427,8 +427,7 @@ MonoBehaviour:
     - rid: 8685803456426672145
       type: {class: 'Constant`1[[System.String, mscorlib]]', ns: Unity.GraphToolkit.Editor, asm: Unity.GraphToolkit.Internal.Editor}
       data:
-        m_Value: Reduzco la velocidad antes de bajar y uso una marcha adecuada para
-          mantener el control.
+        m_Value: Reducir velocidad y usar marcha adecuada.
     - rid: 8685803456426672146
       type: {class: 'Constant`1[[System.String, mscorlib]]', ns: Unity.GraphToolkit.Editor, asm: Unity.GraphToolkit.Internal.Editor}
       data:
@@ -436,7 +435,7 @@ MonoBehaviour:
     - rid: 8685803456426672147
       type: {class: 'Constant`1[[System.String, mscorlib]]', ns: Unity.GraphToolkit.Editor, asm: Unity.GraphToolkit.Internal.Editor}
       data:
-        m_Value: Mantengo una velocidad constante y uso el freno cuando sea necesario.
+        m_Value: Mantener la velocidad y frenar solo si es necesario.
     - rid: 8685803456426672148
       type: {class: 'Constant`1[[System.String, mscorlib]]', ns: Unity.GraphToolkit.Editor, asm: Unity.GraphToolkit.Internal.Editor}
       data:
@@ -447,8 +446,7 @@ MonoBehaviour:
     - rid: 8685803456426672150
       type: {class: 'Constant`1[[System.String, mscorlib]]', ns: Unity.GraphToolkit.Editor, asm: Unity.GraphToolkit.Internal.Editor}
       data:
-        m_Value: " Bajo con precauci\xF3n, pero sin cambiar la marcha para no perder
-          impulso."
+        m_Value: Bajar sin cambiar la marcha.
     - rid: 8685803456426672151
       type: {class: 'Constant`1[[System.String, mscorlib]]', ns: Unity.GraphToolkit.Editor, asm: Unity.GraphToolkit.Internal.Editor}
       data:
