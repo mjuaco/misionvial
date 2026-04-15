@@ -51,9 +51,9 @@ MonoBehaviour:
         m_LocalSubgraphs: []
         m_LastKnownBounds:
           serializedVersion: 2
-          x: 146.4
+          x: 145.6
           y: 260
-          width: 1171.9999
+          width: 1172
           height: 316
         m_GraphElementMetaData:
         - m_Guid:
@@ -432,7 +432,7 @@ MonoBehaviour:
     - rid: 8685803456426672146
       type: {class: 'Constant`1[[System.String, mscorlib]]', ns: Unity.GraphToolkit.Editor, asm: Unity.GraphToolkit.Internal.Editor}
       data:
-        m_Value: Correcta
+        m_Value: CorrectaPendiente
     - rid: 8685803456426672147
       type: {class: 'Constant`1[[System.String, mscorlib]]', ns: Unity.GraphToolkit.Editor, asm: Unity.GraphToolkit.Internal.Editor}
       data:
@@ -440,7 +440,7 @@ MonoBehaviour:
     - rid: 8685803456426672148
       type: {class: 'Constant`1[[System.String, mscorlib]]', ns: Unity.GraphToolkit.Editor, asm: Unity.GraphToolkit.Internal.Editor}
       data:
-        m_Value: Incorrecta
+        m_Value: IncorrectaPendiente1
     - rid: 8685803456426672149
       type: {class: ChoiceNode, ns: , asm: Assembly-CSharp-Editor}
       data: 
@@ -452,7 +452,7 @@ MonoBehaviour:
     - rid: 8685803456426672151
       type: {class: 'Constant`1[[System.String, mscorlib]]', ns: Unity.GraphToolkit.Editor, asm: Unity.GraphToolkit.Internal.Editor}
       data:
-        m_Value: Incorrecta
+        m_Value: IncorrectaPendiente2
     - rid: 8685803456426672155
       type: {class: WireModel, ns: Unity.GraphToolkit.Editor, asm: Unity.GraphToolkit.Internal.Editor}
       data:

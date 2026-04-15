@@ -6,6 +6,7 @@ public class Pregunta : MonoBehaviour
 {
     public InterfazJugable InterfazJugable;
     public ManejoCarro Carro;
+    public Coroutines Coroutines;
     public Rigidbody CarroFísicas;
     public float Posición;
     public float Velocidad;
@@ -21,6 +22,7 @@ public class Pregunta : MonoBehaviour
     {
         if (other.CompareTag("Carro"))
         {
+            Coroutines.Pregunta = this;
             Carro = other.transform.root.GetComponent<ManejoCarro>();
             CarroFísicas = other.transform.root.GetComponent<Rigidbody>();
             Velocidad = CarroFísicas.linearVelocity.x;
@@ -39,6 +41,7 @@ public class Pregunta : MonoBehaviour
         while (Temporizador < Tiempo)
         {
             CarroFísicas.linearVelocity = new Vector3(Mathf.Lerp(Velocidad, 0f, Temporizador / Tiempo), 0f);
+            Carro.Velocidad = Mathf.Lerp(Velocidad, 0f, Temporizador / (Tiempo / 2));
             Temporizador += Time.deltaTime;
             yield return null;
         }
@@ -54,10 +57,10 @@ public class Pregunta : MonoBehaviour
         while (Temporizador < (Tiempo/2))
         {
             CarroFísicas.linearVelocity = new Vector3(Mathf.Lerp(0f, Velocidad, Temporizador / (Tiempo/2)), 0f);
+            Carro.Velocidad = Mathf.Lerp(0f, Velocidad, Temporizador / (Tiempo / 2));
             Temporizador += Time.deltaTime;
             yield return null;
         }
-        InterfazJugable.Activar();
         Carro.EnEncuesta = false;
         this.gameObject.SetActive(false);
     }

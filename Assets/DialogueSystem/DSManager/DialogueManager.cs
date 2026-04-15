@@ -29,6 +29,7 @@ public class DialogueManager : MonoBehaviour
     private runtimeDialogueNode _currentNode;
 
     public Pregunta pregunta;
+    public Coroutines Coroutines;
     public GameObject EndLevel;
     
 
@@ -119,14 +120,50 @@ public class DialogueManager : MonoBehaviour
 
         switch (eventID)
         {
-            case "Incorrecta":
+            case "CorrectaPendiente":
+                StopCoroutine(Coroutine);
+                StartCoroutine(Coroutines.CorrectaPendiente());
+                Debug.Log("Se suma un punto");
+                break;
+
+            case "IncorrectaPendiente1":
+                StopCoroutine(Coroutine);
+                StartCoroutine(Coroutines.IncorrectaPendiente1());
+                break;
+
+            case "IncorrectaPendiente2":
+                StopCoroutine(Coroutine);
+                StartCoroutine(Coroutines.IncorrectaPendiente2());
+                break;
+
+            case "CorrectaEmerger":
+                StopCoroutine(Coroutine);
+                StartCoroutine(Coroutines.CorrectaEmerger());
+                break;
+
+            case "IncorrectaEmerger1":
                 StopCoroutine(Coroutine);
                 PanelNoticia.SetActive(true);
                 break;
 
-            case "Correcta":
+            case "IncorrectaEmerger2":
                 StopCoroutine(Coroutine);
-                Debug.Log("Se suma un punto");
+                PanelNoticia.SetActive(true);
+                break;
+
+            case "CorrectaAnimales":
+                StopCoroutine(Coroutine);
+                StartCoroutine(Coroutines.CorrectaAnimales());
+                break;
+
+            case "IncorrectaAnimales1":
+                StopCoroutine(Coroutine);
+                PanelNoticia.SetActive(true);
+                break;
+
+            case "IncorrectaAnimales2":
+                StopCoroutine(Coroutine);
+                PanelNoticia.SetActive(true);
                 break;
 
             default:
@@ -148,10 +185,11 @@ public class DialogueManager : MonoBehaviour
             Destroy(child.gameObject);
         }
         StartCoroutine(pregunta.SalirPregunta());
-        if (Index == runtimeGraph.Count)
-        {
-            EndLevel.SetActive(true);
-        }
+    }
+
+    public void Finish()
+    {
+        EndLevel.SetActive(true);
     }
 
     private IEnumerator DurantePregunta()

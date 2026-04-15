@@ -117,12 +117,12 @@ public class ManejoCarro : MonoBehaviour
         for (int i = 0; i < RuedasIlustración.Count; i++)
         {
             Ruedas[i].GetWorldPose(out Vector3 pos, out Quaternion quat);
-            RuedasIlustración[i].transform.position = new Vector3(pos.x, pos.y, -1.780008f);
-            RuedasIlustración[i].transform.rotation = Quaternion.Euler(0, 0, -quat.eulerAngles.x);
+            RuedasIlustración[i].transform.position = new Vector3(pos.x, pos.y, RuedasIlustración[i].transform.position.z);
+            RuedasIlustración[i].transform.Rotate(Vector3.forward, -Velocidad * 0.3f);
             //Debug.Log(quat.eulerAngles);
         }
         Carroza.transform.position = new Vector3(Rigidbody.transform.position.x,
                                                  Rigidbody.transform.position.y,
-                                                 Rigidbody.transform.position.z - 0.9f);
+                                                 Carroza.transform.position.z);
     }
 }

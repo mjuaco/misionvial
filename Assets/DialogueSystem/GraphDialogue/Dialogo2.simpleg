@@ -374,7 +374,7 @@ MonoBehaviour:
     - rid: 3649207777172914312
       type: {class: 'Constant`1[[System.String, mscorlib]]', ns: Unity.GraphToolkit.Editor, asm: Unity.GraphToolkit.Internal.Editor}
       data:
-        m_Value: Correcta
+        m_Value: CorrectaEmerger
     - rid: 3649207936445317237
       type: {class: UserNodeModelImp, ns: Unity.GraphToolkit.Editor.Implementation, asm: Unity.GraphToolkit.Editor}
       data:

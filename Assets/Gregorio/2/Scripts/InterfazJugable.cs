@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class InterfazJugable : MonoBehaviour
 {
-    public List<EventTrigger> Botones = new List<EventTrigger>();
+    public List<GameObject> Botones = new List<GameObject>();
     public Image FundidoNegro;
     public GameObject RandomBullshit;
 
@@ -14,14 +14,14 @@ public class InterfazJugable : MonoBehaviour
     {
         foreach (var trigger in Botones)
         {
-            trigger.enabled = true;
+            trigger.SetActive(true);
         }
     }
     public void Desactivar()
     {
         foreach (var trigger in Botones)
         {
-            trigger.enabled = false;
+            trigger.SetActive(false);
         }
     }
 }
