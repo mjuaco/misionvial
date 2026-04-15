@@ -8,7 +8,7 @@ public class Coroutines : MonoBehaviour
     public InterfazJugable InterfazJugable;
     public DialogueManager DialogueManager;
     public GameObject Carruaje;
-    public GameObject Noticias;
+    public GameObject[] Noticias;
     public GameObject Carro;
     public SpriteRenderer Vaca;
     public CámaraSeguimiento CámaraSeguimiento;
@@ -59,7 +59,7 @@ public class Coroutines : MonoBehaviour
             yield return null;
         }
         yield return new WaitForSeconds(2f);
-        Noticias.SetActive(true);
+        Noticias[0].SetActive(true);
         ManejoCarro.Velocidad = 0;
     }
     public IEnumerator IncorrectaPendiente2()
@@ -82,7 +82,7 @@ public class Coroutines : MonoBehaviour
             Tiempo += Time.deltaTime;
             yield return null;
         }
-        Noticias.SetActive(true);
+        Noticias[1].SetActive(true);
         ManejoCarro.Velocidad = 0;
     }
 
@@ -114,11 +114,89 @@ public class Coroutines : MonoBehaviour
     }
     public IEnumerator IncorrectaEmerger1()
     {
-        yield return null;
+        Pregunta.Velocidad = 15;
+        float tiempo = 0;
+        float duracionAceleracion = 2.0f;
+
+        while (tiempo < duracionAceleracion)
+        {
+            ManejoCarro.Velocidad = Mathf.Lerp(15, 35, tiempo / duracionAceleracion);
+            tiempo += Time.deltaTime;
+            yield return null;
+        }
+
+        tiempo = 0;
+        float duracionManiobra = 0.8f;
+        while (tiempo < duracionManiobra)
+        {
+            Carruaje.transform.localPosition = new Vector3(
+                Mathf.Lerp(5.95f, 1.5f, tiempo / duracionManiobra),
+                Carruaje.transform.localPosition.y,
+                Carruaje.transform.localPosition.z
+            );
+            tiempo += Time.deltaTime;
+            yield return null;
+        }
+
+        tiempo = 0;
+        float duracionFrenado = 0.5f;
+        Vector3 posicionAntesFreno = Carro.transform.position;
+
+        while (tiempo < duracionFrenado)
+        {
+            ManejoCarro.Velocidad = Mathf.Lerp(35, 0, tiempo / duracionFrenado);
+
+            Carro.transform.position = posicionAntesFreno + new Vector3(Random.Range(-0.05f, 0.05f), 0, 0);
+
+            tiempo += Time.deltaTime;
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(0.5f);
+
+        
+        if (Noticias.Length > 2)
+        {
+            Noticias[2].SetActive(true);
+        }
+
+        ManejoCarro.Velocidad = 0;
     }
     public IEnumerator IncorrectaEmerger2()
     {
-        yield return null;
+        Pregunta.Velocidad = 20;
+        ManejoCarro.Velocidad = 20;
+        float tiempo = 0;
+
+        yield return new WaitForSeconds(1.5f); 
+
+        while (tiempo < 1.2f)
+        {
+            float desplazamiento = Mathf.PingPong(tiempo * 2, 0.5f); 
+            Carro.transform.localPosition += new Vector3(0, 0, desplazamiento * Time.deltaTime);
+
+            ManejoCarro.Velocidad = Mathf.Lerp(20, 5, tiempo / 1.2f);
+
+            tiempo += Time.deltaTime;
+            yield return null;
+        }
+
+        tiempo = 0;
+        while (tiempo < 0.5f)
+        {
+            ManejoCarro.Velocidad = Mathf.Lerp(5, 0, tiempo / 0.5f);
+            tiempo += Time.deltaTime;
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(0.5f);
+
+        if (Noticias.Length > 3)
+        {
+            Noticias[3].SetActive(true);
+        }
+
+        ManejoCarro.Velocidad = 0;
     }
 
     //Pregunta 3

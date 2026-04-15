@@ -17,7 +17,7 @@ public class DialogueManager : MonoBehaviour
     public GameObject Dialoguepanel;
     public TextMeshProUGUI SpeakerNameText;
     public TextMeshProUGUI DialogueText;
-    public GameObject PanelNoticia;
+    public GameObject[] PanelNoticia;
     public Image Meter;
 
     [Header("UI Buttons Components")]
@@ -143,12 +143,12 @@ public class DialogueManager : MonoBehaviour
 
             case "IncorrectaEmerger1":
                 StopCoroutine(Coroutine);
-                PanelNoticia.SetActive(true);
+                StartCoroutine(Coroutines.IncorrectaEmerger1());
                 break;
 
             case "IncorrectaEmerger2":
                 StopCoroutine(Coroutine);
-                PanelNoticia.SetActive(true);
+                StartCoroutine(Coroutines.IncorrectaEmerger2());
                 break;
 
             case "CorrectaAnimales":
@@ -158,12 +158,12 @@ public class DialogueManager : MonoBehaviour
 
             case "IncorrectaAnimales1":
                 StopCoroutine(Coroutine);
-                PanelNoticia.SetActive(true);
+                PanelNoticia[2].SetActive(true);
                 break;
 
             case "IncorrectaAnimales2":
                 StopCoroutine(Coroutine);
-                PanelNoticia.SetActive(true);
+                PanelNoticia[3].SetActive(true);
                 break;
 
             default:

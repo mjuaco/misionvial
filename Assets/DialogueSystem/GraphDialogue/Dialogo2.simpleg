@@ -50,10 +50,10 @@ MonoBehaviour:
         m_LocalSubgraphs: []
         m_LastKnownBounds:
           serializedVersion: 2
-          x: 565.6
-          y: 119.99999
-          width: 1003.2001
-          height: 315.19998
+          x: 566
+          y: 120
+          width: 1001
+          height: 316
         m_GraphElementMetaData:
         - m_Guid:
             m_Value0: 18092804135630415850
@@ -420,7 +420,7 @@ MonoBehaviour:
           expandedPortsById:
             m_KeyList: []
             m_ValueList: 
-        m_Collapsed: 0
+        m_Collapsed: 1
         m_CurrentModeIndex: 0
         m_ElementColor:
           m_Color: {r: 0, g: 0, b: 0, a: 0}
@@ -597,8 +597,8 @@ MonoBehaviour:
     - rid: 8685803272538947842
       type: {class: 'Constant`1[[System.String, mscorlib]]', ns: Unity.GraphToolkit.Editor, asm: Unity.GraphToolkit.Internal.Editor}
       data:
-        m_Value: Incorrecta
+        m_Value: IncorrectaEmerger1
     - rid: 8685803272538947843
       type: {class: 'Constant`1[[System.String, mscorlib]]', ns: Unity.GraphToolkit.Editor, asm: Unity.GraphToolkit.Internal.Editor}
       data:
-        m_Value: Incorrecta
+        m_Value: IncorrectaEmerger2
