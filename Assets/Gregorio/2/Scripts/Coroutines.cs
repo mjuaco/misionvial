@@ -120,17 +120,17 @@ public class Coroutines : MonoBehaviour
     {
         Pregunta.Velocidad = 15;
         float tiempo = 0;
-        float duracionAceleracion = 2.0f;
 
+        float duracionAceleracion = 2.0f;
         while (tiempo < duracionAceleracion)
         {
-            ManejoCarro.Velocidad = Mathf.Lerp(15, 35, tiempo / duracionAceleracion);
+            ManejoCarro.Velocidad = Mathf.Lerp(15, 45, tiempo / duracionAceleracion);
             tiempo += Time.deltaTime;
             yield return null;
         }
 
         tiempo = 0;
-        float duracionManiobra = 0.8f;
+        float duracionManiobra = 0.6f; 
         while (tiempo < duracionManiobra)
         {
             Carruaje.transform.localPosition = new Vector3(
@@ -142,29 +142,37 @@ public class Coroutines : MonoBehaviour
             yield return null;
         }
 
-        tiempo = 0;
-        float duracionFrenado = 0.5f;
-        Vector3 posicionAntesFreno = Carro.transform.position;
+        ManejoCarro.Velocidad = 0;
 
-        while (tiempo < duracionFrenado)
+        Vector3 posicionImpacto = Carro.transform.position;
+        float tiempoChoque = 0;
+        float duracionEfectoChoque = 0.2f;
+
+        while (tiempoChoque < duracionEfectoChoque)
         {
-            ManejoCarro.Velocidad = Mathf.Lerp(35, 0, tiempo / duracionFrenado);
+            float retroceso = Mathf.Lerp(0, 0.5f, tiempoChoque / duracionEfectoChoque);
+            Carro.transform.position = posicionImpacto + new Vector3(retroceso, 0.1f, Random.Range(-0.1f, 0.1f));
 
-            Carro.transform.position = posicionAntesFreno + new Vector3(Random.Range(-0.05f, 0.05f), 0, 0);
+            Carro.transform.rotation = Quaternion.Euler(5f, 180f, Random.Range(-2f, 2f));
 
+            tiempoChoque += Time.deltaTime;
+            yield return null;
+        }
+
+        tiempo = 0;
+        while (tiempo < 0.5f)
+        {
+            Carro.transform.position += new Vector3(0, 0, Random.Range(-0.05f, 0.05f));
             tiempo += Time.deltaTime;
             yield return null;
         }
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1.0f);
 
-        
         if (Noticias.Length > 2)
         {
             Noticias[2].SetActive(true);
         }
-
-        ManejoCarro.Velocidad = 0;
     }
     public IEnumerator IncorrectaEmerger2()
     {
@@ -172,7 +180,7 @@ public class Coroutines : MonoBehaviour
         ManejoCarro.Velocidad = 20;
         float tiempo = 0;
 
-        yield return new WaitForSeconds(1.5f); 
+        yield return new WaitForSeconds(3f); 
 
         while (tiempo < 1.2f)
         {
@@ -259,7 +267,7 @@ public class Coroutines : MonoBehaviour
         }
 
         tiempo = 0;
-        float duracionSusto = 0.8f;
+        float duracionSusto = 1.5f;
         while (tiempo < duracionSusto)
         {
             ManejoCarro.Velocidad = Mathf.Lerp(30, 0, tiempo / duracionSusto);
